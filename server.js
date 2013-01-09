@@ -6,6 +6,18 @@ var interval = 1200000; //20 min
 var client  = "";
 var client2 = "";
 
+var express = require('express');
+var app = express.createServer(express.logger());
+
+app.get('/', function(request, response) {
+  response.send('Welcome to Pinger!!');
+});
+
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
+
 switch(process.env.NODE_ENV){
   case 'development':
     var keys = require('./keys.js');
@@ -37,8 +49,8 @@ var init = function(){
 var transport = nodemailer.createTransport("SMTP", {
     service: 'Gmail',
     auth: {
-        user: keys.smtpUser ,
-        pass: keys.smtpPassword
+        user: "yourSMTPUsername" ,
+        pass: "yourSMTPPassword"
     }
 });
 
