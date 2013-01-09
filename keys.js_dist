@@ -1,0 +1,5 @@
+module.exports = {
+  dbConnectionString: "pg://username:password@localhost:5432/databasename",
+  smtpUser: "example@exampleapp.com",
+  smtpPassword: "mypassword"
+}
